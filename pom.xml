@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 	<properties>
-		<org.springfeamework.version>3.1.2.RELEASE</org.springframework.version>
+		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
 		<org.slf4j.version>1.6.1</org.slf4j.version>
 	</properties>
 	<dependencies>
@@ -76,14 +76,14 @@
 			<version>1.6.2</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- Jackson JSON Mapper -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.6.4</version>
 		</dependency>
-		
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -116,15 +116,38 @@
 			<version>${org.springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.21</version>
+		</dependency>
+
+
+
 	</dependencies>
 	<repositories>
 		<!-- For Hibernate Validator -->
 		<repository>
 			<id>org.jboss.repository.release</id>
-			<name>JBoss Maven Release Repository</name>			
+			<name>JBoss Maven Release Repository</name>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-			<snapshots><enabled>false</enabled></snapshots>			
-		</repository>		
+			<snapshots><enabled>false</enabled></snapshots>
+		</repository>
 	</repositories>
 	<build>
 		<plugins>
