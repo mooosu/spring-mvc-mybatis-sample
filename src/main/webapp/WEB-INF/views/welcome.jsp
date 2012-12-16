@@ -14,19 +14,19 @@
 		<![endif]-->
 	</head>
 	<body>
-		<div class="container">  
+		<div class="container">
 			<h1>
 				<fmt:message key="welcome.title"/>
 			</h1>
 			<p>
 			Locale = ${pageContext.response.locale}
 			</p>
-			<hr>	
+			<hr>
 			<ul>
 				<li> <a href="?locale=en_us">us</a> |  <a href="?locale=en_gb">gb</a> | <a href="?locale=es_es">es</a> | <a href="?locale=de_de">de</a> </li>
 			</ul>
 			<ul>
-				<li><a href="account">@Controller Example</a></li>
+				<li><a href="blogs">Blogs</a></li>
 			</ul>
 		</div>
 	</body>
