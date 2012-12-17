@@ -21,7 +21,8 @@
 		Create Blog
 	</h1>
 	<div class="span-12 last">
-		<form:form modelAttribute="blog" action="create" method="post">
+		<c:url value="/blogs/create" var="abcURL"/> 
+		<form:form modelAttribute="blog" action="${abcURL}" method="post">
 		  	<fieldset>
 				<legend>Blog Fields</legend>
 				<p>

@@ -7,10 +7,12 @@ import javax.validation.constraints.Size;
 public class Blog{
 	private int id;
 	@NotNull
-	@Size(min=5,max=50)
+	@Size(min=5,max=50,message="{blog.title.size}")
 	private String title;
+	@NotNull
 	private String content;
 	private String comment;
+	@NotNull
 	private java.sql.Timestamp created_at;
 	private java.sql.Timestamp updated_at;
 

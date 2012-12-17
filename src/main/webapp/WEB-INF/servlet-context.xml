@@ -36,8 +36,13 @@
 
     <!-- Application Message Bundle -->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="/WEB-INF/messages/messages" />
+		<property name="basenames">
+			<list>
+				<value>/WEB-INF/messages/messages</value>
+			</list>
+		</property>
         <property name="cacheSeconds" value="0" />
+		<property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
     <!-- Resolves view names to protected .jsp resources within the /WEB-INF/views directory -->
