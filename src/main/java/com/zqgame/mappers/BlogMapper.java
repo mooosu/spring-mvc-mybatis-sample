@@ -1,5 +1,7 @@
 package com.zqgame.mappers;
 
+import org.noo.pagination.page.Page;
+import java.util.List;
 import com.zqgame.models.Blog;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -13,4 +15,5 @@ public interface BlogMapper {
 	Blog findById(@Param("id") int id );
 	@Insert("insert into blogs(title , content , comment,created_at) values (#{title},#{content},#{comment},#{created_at})")
 	int save(Blog blog);
+	List<Blog> findAllBlogs(Page tag);
 }

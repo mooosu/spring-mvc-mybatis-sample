@@ -1,10 +1,16 @@
 package com.zqgame.models;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Timestamp;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Blog{
+
+	private static final Logger LOG = LoggerFactory.getLogger(Blog.class);
+
 	private int id;
 	@NotNull
 	@Size(min=5,max=50,message="{blog.title.size}")
