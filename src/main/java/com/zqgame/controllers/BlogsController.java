@@ -33,9 +33,6 @@ public class BlogsController {
 	public String index(Model model)
 	{
 		Pagination pager = PageContext.getPageContext();
-		pager.setCurrentPage(1);
-		pager.setPageSize(2);
-
 		List<Blog> blogs = blogMapper.findAllBlogs(pager);
 		model.addAttribute("blogs",blogs);
 		model.addAttribute("pager",pager);
