@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.home</groupId>
 	<artifactId>sm-template</artifactId>
@@ -8,9 +8,18 @@
 	<packaging>war</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 	<properties>
+		<java-version>1.6</java-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
 		<org.slf4j.version>1.6.1</org.slf4j.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.aspectj.version>1.6.9</org.aspectj.version>
+		<org.apache.shiro.version>1.2.0</org.apache.shiro.version>
+		<org.hibernate.validator.version>4.2.0.Final</org.hibernate.validator.version>
+		<org.mybatis.version>3.1.1</org.mybatis.version>
+		<org.mybatis.spring.version>1.0.2</org.mybatis.spring.version>
+		<org.mybatis.repository.path>/src/main/resources/migrations</org.mybatis.repository.path>
+
 	</properties>
 	<dependencies>
 
@@ -24,7 +33,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				 </exclusion>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -32,6 +41,24 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+
+		<!-- SHIRO Security Stuff -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${org.apache.shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${org.apache.shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${org.apache.shiro.version}</version>
+		</dependency>
+
 
 		<!-- Logging -->
 		<dependency>
@@ -67,7 +94,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.1.0.Final</version>
+			<version>${org.hibernate.validator.version}</version>
 		</dependency>
 
 		<!--  Joda Time -->
@@ -157,25 +184,19 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2</version>
 		</dependency>
-	 <dependency>
-	  <groupId>unknown.binary</groupId>
-	  <artifactId>AmazonS3Bucket</artifactId>
-	  <version>SNAPSHOT</version>
-	 </dependency>
 	</dependencies>
 	<repositories>
-		<!-- For Hibernate Validator -->
+		<!-- For JSR 303 Validation - Hibernat Validator -->
 		<repository>
-			<id>org.jboss.repository.release</id>
-			<name>JBoss Maven Release Repository</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-			<snapshots><enabled>false</enabled></snapshots>
+			<id>jboss-public-repository-group</id>
+			<url>https://repository.jboss.org/nexus/content/groups/public-jboss</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
-	 <repository>
-	  <id>unknown-jars-temp-repo</id>
-	  <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
-	  <url>file:${project.basedir}/lib</url>
-	 </repository>
 	</repositories>
 	<build>
 		<plugins>

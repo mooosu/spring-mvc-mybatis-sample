@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<!-- override these for application-specific URLs if you like: <property 
+			name="loginUrl" value="/login.jsp"/> <property name="successUrl" value="/home.jsp"/> 
+			<property name="unauthorizedUrl" value="/unauthorized.jsp"/> -->
+		<!-- The 'filters' property is not necessary since any declared javax.servlet.Filter 
+			bean -->
+		<!-- defined will be automatically acquired and available via its beanName 
+			in chain -->
+		<!-- definitions, but you can perform instance overrides or name aliases 
+			here if you like: -->
+		<!-- <property name="filters"> <util:map> <entry key="anAlias" value-ref="someFilter"/> 
+			</util:map> </property> -->
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- # some example chain definitions:
+				/admin/** = authc, roles[admin]
+				/docs/** = authc, perms[document:read]
+				/** = authc
+				# more URL-to-FilterChain definitions here -->
+			</value>
+		</property>
+	</bean>
+
+	<!-- Define any javax.servlet.Filter beans you want anywhere in this application 
+		context. -->
+	<!-- They will automatically be acquired by the 'shiroFilter' bean above 
+		and made available -->
+	<!-- to the 'filterChainDefinitions' property. Or you can manually/explicitly 
+		add them -->
+	<!-- to the shiroFilter's 'filters' Map if desired. See its JavaDoc for 
+		more details. -->
+	<!--  
+		<bean id="someFilter" class="..." />
+		<bean id="anotherFilter" class="..."></bean>
+	 -->
+
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!-- Single realm app. If you have multiple realms, use the 'realms' property 
+			instead. -->
+		<property name="realm" ref="sampleRealm" />
+		<!-- By default the servlet container sessions will be used. Uncomment 
+			this line to use shiro's native sessions (see the JavaDoc for more): -->
+		<property name="sessionMode" value="native"/>
+	</bean>
+	
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+
+	<bean id="sha512Matcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+		<!-- Modifying any piece of the matcher will likely invalidate the ability to match any passphrases in the DB -->
+		<property name="hashAlgorithmName" value="${shiro.hashAlgorithmName}" />
+		<property name="storedCredentialsHexEncoded" value="${shiro.storedCredentialsHexEncoded}" />
+		<property name="hashIterations" value="${shiro.hashIterations}" />
+	</bean>
+	
+	<!-- Define the Shiro Realm implementation you want to use to connect to 
+		your back-end -->
+	<!-- security datasource: -->  
+	<bean id="sampleRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="authenticationQuery" value="select passphrase, CONCAT('${shiro.applicationSalt}', ':', salt) as salt from shiro_user where userid = ?"/>
+		<property name="userRolesQuery" value="SELECT name FROM shiro_role LEFT JOIN shiro_user_role ON shiro_role.id = shiro_user_role.role_id LEFT JOIN shiro_user ON shiro_user_role.user_id = shiro_user.id WHERE userid = ?"/>
+		<property name="permissionsQuery" value="SELECT permission FROM shiro_role_permission LEFT JOIN shiro_role ON shiro_role_permission.role_id = shiro_role.id WHERE shiro_role.name = ?"/>
+		<property name="permissionsLookupEnabled" value="true"/>
+		<property name="saltStyle" value="COLUMN"/>
+		<property name="credentialsMatcher" ref="sha512Matcher"/>
+	</bean>
+</beans>

@@ -21,7 +21,7 @@
 		<filter-name>characterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<!-- Handles all requests into the application -->
 	<servlet>
 		<servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
@@ -29,7 +29,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				/WEB-INF/servlet-context.xml
+				/WEB-INF/root-context.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
