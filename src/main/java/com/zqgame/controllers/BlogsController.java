@@ -4,18 +4,16 @@ import com.zqgame.mappers.BlogMapper;
 import com.zqgame.models.Blog;
 import com.zqgame.common.ResourceNotFoundException;
 
-import org.noo.pagination.annotation.Paging;
+
 import org.noo.pagination.page.PageContext;
-import org.noo.pagination.page.Page;
 import org.noo.pagination.page.Pagination;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import javax.annotation.Resource;
 import javax.validation.Valid;
-
+import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class BlogsController {
 	private static final Logger LOG = LoggerFactory.getLogger(BlogsController.class);
+	
 	@Resource(name="blogMapper")
 	private BlogMapper blogMapper;
 

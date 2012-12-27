@@ -3,10 +3,8 @@ package com.zqgame.mappers;
 import org.noo.pagination.page.Page;
 import java.util.List;
 import com.zqgame.models.Blog;
-import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 

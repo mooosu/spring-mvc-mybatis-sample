@@ -3,7 +3,6 @@ package com.zqgame.interceptors;
 import com.zqgame.common.ParsePagination;
 
 import org.noo.pagination.page.PageContext;
-import org.noo.pagination.page.Page;
 import org.noo.pagination.page.Pagination;
 
 import javax.servlet.http.HttpServletRequest;
