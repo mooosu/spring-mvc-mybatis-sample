@@ -189,7 +189,7 @@
 			<artifactId>native2ascii-maven-plugin</artifactId>
 			<version>1.0-beta-1</version>
 		</dependency>
-            
+
 	</dependencies>
 	<repositories>
 		<!-- For JSR 303 Validation - Hibernat Validator -->
@@ -227,6 +227,16 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.7.2</version>
+				<configuration>
+					<additionalClasspathElements>
+						<additionalClasspathElement>src/test/java</additionalClasspathElement>
+					</additionalClasspathElements>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

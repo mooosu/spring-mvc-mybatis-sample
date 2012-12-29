@@ -21,8 +21,8 @@
 		<fmt:message key="sign_in.title"/>
 	</h1>
 	<div class="span-12 last">
-		<c:url value="/sessions/create" var="abcURL"/>
-		<form:form modelAttribute="signIn" action="${abcURL}" method="post">
+		<c:url value="/sessions/create" var="create"/>
+		<form:form modelAttribute="signIn" action="${create}" method="post">
 		  	<fieldset>
 				<legend>登陆信息</legend>
 				<p>

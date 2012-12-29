@@ -1,25 +1,20 @@
 package com.zqgame.controllers;
 
 import com.zqgame.models.SignIn;
-import com.zqgame.common.UserService;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import com.zqgame.services.UserService;
 import javax.validation.Valid;
-
-
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class SessionsController{

@@ -7,8 +7,8 @@
     <resultMap id="user" type="com.zqgame.models.User">
         <result property="id" column="id" />
         <result property="username" column="username" />
-        <result property="salt" column="salt" />
         <result property="email" column="email" />
+        <result property="salt" column="salt" />
         <result property="createdAt" column="created_at" />
     </resultMap>
 
@@ -22,15 +22,13 @@
         </selectKey>
     </insert>
 
-    <select id="findById" parameterType="int" resultMap="user">
-        SELECT id, username, salt, email, created_at FROM shiro_user WHERE id
-        = #{id}
+    <select id="findById" parameterType="int" resultType="com.zqgame.models.User">
+        SELECT id, username, email, salt, created_at FROM shiro_user WHERE id = #{id}
     </select>
 
-    <select id="findByUsername" parameterType="String" resultMap="user">
-        SELECT id, username, salt, email, created_at FROM shiro_user
-        WHERE username =
-        #{userId}
+    <select id="findByUsername" parameterType="String" resultType="com.zqgame.models.User">
+        SELECT id, username, email, salt, created_at FROM shiro_user
+        WHERE username = #{userId}
     </select>
 
 </mapper>

@@ -1,13 +1,10 @@
 package com.zqgame.controllers;
 
 import com.zqgame.models.User;
-import com.zqgame.common.UserService;
-
+import com.zqgame.services.UserService;
+import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

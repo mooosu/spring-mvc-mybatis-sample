@@ -1,5 +1,6 @@
 package com.zqgame.models;
 
+import java.sql.Timestamp;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -10,6 +11,10 @@ public class User
 	@NotNull
 	@Size(min=5,max=50,message="{user.username.size}")
 	private String username;
+
+	@NotNull
+	@Size(min=5,max=50,message="{user.email.size}")
+	private String email;
 
 	@NotNull
 	@Size(min=5,max=50,message="{user.password.size}")
@@ -23,10 +28,10 @@ public class User
 	@Size(min=4,max=4,message="{user.captcha.size}")
 	private String captcha;
 
-	@NotNull
-	@Size(min=4,max=4,message="{user.email.size}")
-	private String email;
 	private String salt;
+
+	private java.sql.Timestamp createdAt;
+	private java.sql.Timestamp updatedAt;
 
 	public Integer getId()
 	{
@@ -45,11 +50,21 @@ public class User
 	{
 		this.username = username;
 	}
-	public String getConfirmationPassword()
+
+	public String getEmail()
+	{
+		return email;
+	}
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+
+	public String getConfirmation_password()
 	{
 		return confirmation_password;
 	}
-	public void setConfirmationPassword(String confirmation_password)
+	public void setConfirmation_password(String confirmation_password)
 	{
 		this.confirmation_password = confirmation_password;
 	}
@@ -77,5 +92,14 @@ public class User
 	{
 		this.captcha = captcha;
 	}
+
+  public void setCreatedAt( Timestamp createdAt)
+  {
+    this.createdAt = createdAt;
+  }
+  public Timestamp getCreatedAt()
+  {
+    return this.createdAt ;
+  }
 
 }

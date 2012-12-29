@@ -17,14 +17,14 @@
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
     <context:component-scan base-package="com.zqgame.controllers,com.zqgame.common" />
 
-	<!-- enable autowire -->
-	<context:annotation-config />
+    <!-- enable autowire -->
+    <context:annotation-config />
 
     <!-- Configures the @Controller programming model -->
     <mvc:annotation-driven />
 
-	<!-- Enable transaction demarcation with annotations -->
-	<tx:annotation-driven />
+    <!-- Enable transaction demarcation with annotations -->
+    <tx:annotation-driven />
 
     <!-- Forwards requests to the "/" resource to the "welcome" view -->
     <mvc:view-controller path="/" view-name="welcome"/>
@@ -33,12 +33,12 @@
     <mvc:interceptors>
         <!-- Changes the locale when a 'locale' request parameter is sent; e.g. /?locale=de -->
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
-		<mvc:interceptor>
-			<mvc:mapping path="/blogs"/>
-			<bean class="com.zqgame.interceptors.PaginationInterceptor">
-				<property name="pageSize" value="3"/>
-			</bean>
-		</mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/blogs"/>
+            <bean class="com.zqgame.interceptors.PaginationInterceptor">
+                <property name="pageSize" value="3"/>
+            </bean>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources/ directory -->
@@ -46,13 +46,13 @@
 
     <!-- Application Message Bundle -->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basenames">
-			<list>
-				<value>/WEB-INF/messages/messages</value>
-			</list>
-		</property>
+        <property name="basenames">
+            <list>
+                <value>/WEB-INF/messages/messages</value>
+            </list>
+        </property>
         <property name="cacheSeconds" value="0" />
-		<property name="defaultEncoding" value="UTF-8"/>
-	</bean>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 
 </beans>

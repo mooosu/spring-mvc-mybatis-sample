@@ -1,8 +1,7 @@
-package com.zqgame.common;
+package com.zqgame.services;
 
-import com.zqgame.models.User;
 import com.zqgame.mappers.UserMapper;
-
+import com.zqgame.models.User;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Sha512Hash;
 import org.slf4j.Logger;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Service;
 @PropertySource("classpath:application.properties")
 public class UserService {
 	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
-	
+
 	@Autowired
 	private Environment env;
 
