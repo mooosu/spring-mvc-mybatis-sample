@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-@ContextConfiguration(locations = { "classpath:com/zqgame/mappers/unittest-mapper.xml" })
+@ContextConfiguration(locations = { "classpath:com/zqgame/unittest-mapper.xml" })
 public class BlogServiceTest extends AbstractTest {
   @Autowired
   protected BlogService blogService;

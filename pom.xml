@@ -144,6 +144,7 @@
 			<version>${org.springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- Database -->
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
@@ -164,6 +165,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.21</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.8</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.noo</groupId>
 			<artifactId>mybatis-paging</artifactId>

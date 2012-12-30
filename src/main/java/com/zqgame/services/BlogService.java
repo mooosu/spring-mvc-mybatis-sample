@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class BlogService {
     @Autowired(required = true)
     private BlogMapper blogMapper;
-    public void setUserMapper(BlogMapper blogMapper) {
+    public void setBlogMapper(BlogMapper blogMapper) {
             this.blogMapper = blogMapper;
     }
 }
