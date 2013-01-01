@@ -7,4 +7,12 @@
 	<select id="findAllBlogs" parameterType="org.noo.pagination.page.Page" resultType="com.zqgame.models.Blog">
 		select * from blogs
 	</select>
+    <insert id="save" parameterType="com.zqgame.models.Blog"
+        useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into blogs(title , content , comment,created_at) 
+        values  (#{title},#{content},#{comment},#{created_at})
+        <selectKey keyProperty="id" resultType="Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+    </insert>
 </mapper>

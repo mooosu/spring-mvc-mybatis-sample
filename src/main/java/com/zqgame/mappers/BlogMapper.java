@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository(value="blogMapper")
 public interface BlogMapper {
 	Blog findById(@Param("id") int id );
-	@Insert("insert into blogs(title , content , comment,created_at) values (#{title},#{content},#{comment},#{created_at})")
 	int save(Blog blog);
 	List<Blog> findAllBlogs(Page tag);
 }

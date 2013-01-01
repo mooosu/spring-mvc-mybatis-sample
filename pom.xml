@@ -241,9 +241,11 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.7.2</version>
 				<configuration>
+					<printSummary>true</printSummary>
 					<additionalClasspathElements>
-						<additionalClasspathElement>src/test/java</additionalClasspathElement>
+						<additionalClasspathElement>${project.basedir}/src/main/webapp/WEB-INF/classes/</additionalClasspathElement>
 					</additionalClasspathElements>
+					<useFile>false</useFile>
 				</configuration>
 			</plugin>
 		</plugins>

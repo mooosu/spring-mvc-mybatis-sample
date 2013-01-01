@@ -29,7 +29,6 @@
 		<property name="configLocation" value="/WEB-INF/mybatis.xml" />
     </bean>
 
-
     <bean id="blogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.zqgame.mappers.BlogMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
