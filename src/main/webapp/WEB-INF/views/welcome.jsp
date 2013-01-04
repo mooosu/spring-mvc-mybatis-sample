@@ -17,17 +17,18 @@
 		<div class="container">
 			<h1>
 				<fmt:message key="welcome.title"/>
-			</h1>
-			<p>
-			Locale = ${pageContext.response.locale}
-			</p>
-			<hr>
-			<ul>
-				<li> <a href="?locale=en_us">us</a> |  <a href="?locale=en_gb">gb</a> | <a href="?locale=es_es">es</a> | <a href="?locale=de_de">de</a> </li>
-			</ul>
-			<ul>
-				<li><a href="blogs">Blogs</a></li>
-			</ul>
+                        </h1>
+                        <ul>
+                            <li><a href="blogs">文章列表</a></li>
+                        </ul>
+                        <p>
+                            Locale = ${pageContext.response.locale}
+                        </p>
+                        <hr>
+                        <ul>
+                            <li> <a href="?locale=en_us">us</a> |  <a href="?locale=en_gb">gb</a> | <a href="?locale=es_es">es</a> | <a href="?locale=de_de">de</a> </li>
+                        </ul>
+
 		</div>
 	</body>
 </html>

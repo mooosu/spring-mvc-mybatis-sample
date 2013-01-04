@@ -1,13 +1,12 @@
 package com.zqgame.common;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.HashMap;
-import java.util.Map;
-import java.lang.Integer;
 
 public class ParsePagination {
 
@@ -58,7 +57,7 @@ public class ParsePagination {
 			this.page = Integer.parseInt(sessionPage);
 		}
 	}
-	protected void parseCookies(Cookie [] cookies )
+	private void parseCookies(Cookie [] cookies )
 	{
 		for( Cookie cookie : cookies ) {
 			cookieMap.put(cookie.getName(),cookie.getValue());
