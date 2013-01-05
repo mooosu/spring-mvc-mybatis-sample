@@ -12,6 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper {
 	User findById(@Param("id") int id );
 	User findByUsername(@Param("username") String username );
-	@Insert("insert into shiro_user(username, email, password, salt, created_at) values (#{username},#{email},#{password},#{salt},CURDATE())")
-	int save( User user );
+	void save( User user );
 }

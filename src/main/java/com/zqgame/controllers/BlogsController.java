@@ -64,7 +64,7 @@ public class BlogsController {
 
     @RequestMapping(value = "/blogs/{id}/edit", method = RequestMethod.GET)
     public String edit(@PathVariable int id, Model model) {
-        Blog blog = BlogMapper.findById(id);
+        Blog blog = blogMapper.findById(id);
         model.addAttribute(new Blog());
         return "blogs/new";
     }

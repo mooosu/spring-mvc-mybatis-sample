@@ -12,8 +12,6 @@
         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
-    <!--配置和创建jdbc数据源 -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${driverClass}"/>
         <property name="jdbcUrl" value="${url}"/>

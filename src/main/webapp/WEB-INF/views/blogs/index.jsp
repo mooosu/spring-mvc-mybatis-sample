@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <html>
     <head>
         <META http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
@@ -16,6 +16,12 @@
         <![endif]-->
     </head>
     <body>
+        <shiro:hasPermission name="write">
+            
+        </shiro:hasPermission>
+        <shiro:hasPermission name="read">
+            read permission here
+        </shiro:hasPermission>
         <c:url var="newUrl" value="blogs/new" />
         <div class="container">
             <h1>

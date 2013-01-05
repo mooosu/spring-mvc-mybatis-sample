@@ -13,5 +13,9 @@
     <bean id="blogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.zqgame.mappers.BlogMapper" />
     </bean>
+    
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.zqgame.mappers.UserMapper" />
+    </bean>
 </beans>
 

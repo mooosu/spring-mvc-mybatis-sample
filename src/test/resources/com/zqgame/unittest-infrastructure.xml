@@ -11,7 +11,7 @@
      http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
 
     <!--配置和创建jdbc数据源 -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:application.properties"/>
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${driverClass}"/>
         <property name="jdbcUrl" value="${url}"/>
@@ -39,12 +39,16 @@
              file. This config file could, in turn, contain &ltmapper&gt
              elements that point to the correct mapper xml files.
          -->
-        <property name="mapperLocations" value="classpath:/mappers/*.xml" />
+        <property name="mapperLocations" value="classpath:mappers/*.xml" />
     </bean>
 
     <!-- simple transactional service layer bean; the userDao can be implemented in various ways with MyBatis-Spring  -->
     <bean id="blogService" class="com.zqgame.services.BlogService">
         <property name="blogMapper" ref="blogMapper" />
+    </bean>
+        <!-- simple transactional service layer bean; the userDao can be implemented in various ways with MyBatis-Spring  -->
+    <bean id="userService" class="com.zqgame.services.UserService">
+        <property name="userMapper" ref="userMapper" />
     </bean>
 </beans>
 

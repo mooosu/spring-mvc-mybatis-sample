@@ -12,9 +12,8 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-
-	<import resource="mvc-context.xml" />
-	<import resource="resolvers-context.xml" />
-	<import resource="db-context.xml" />
-	<import resource="shiro-context.xml" />
+    
+    <context:property-placeholder location="classpath:application.properties"/>
+    <import resource="db-context.xml" />
+    <import resource="shiro-context.xml" />
 </beans>

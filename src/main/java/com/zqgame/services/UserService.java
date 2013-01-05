@@ -25,6 +25,7 @@ public class UserService {
 
 	@Autowired(required = true)
 	private UserMapper userMapper;
+        
 	public void setUserMapper(UserMapper userMapper) {
 		this.userMapper = userMapper;
 	}

@@ -24,6 +24,9 @@
             </dataSource>
         </environment>
 
+
+
+
         <environment id="test">
             <transactionManager type="org.springframework.jdbc.datasource.DataSourceTransactionManager" />
             <dataSource type="com.mchange.v2.c3p0.ComboPooledDataSource">

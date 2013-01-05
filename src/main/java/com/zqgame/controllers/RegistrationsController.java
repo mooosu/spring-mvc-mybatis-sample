@@ -35,7 +35,7 @@ public class RegistrationsController{
 		User u = this.userService.create(user);         
 		logger.info("user created");
 		model.addAttribute("user", u);
-		return "redirect:/welcome";
+		return "redirect:/";
 	}
 
 }

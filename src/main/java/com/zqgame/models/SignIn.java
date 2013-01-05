@@ -6,13 +6,13 @@ import javax.validation.constraints.Size;
 public class SignIn
 {
 	@NotNull
-	@Size(min=5,max=50,message="{signin.username.size}")
+	@Size(min=5,max=50,message="{user.username.size}")
 	private String username;
 	@NotNull
-	@Size(min=5,max=50,message="{signin.password.size}")
+	@Size(min=5,max=50,message="{user.password.size}")
 	private String password;
 	@NotNull
-	@Size(min=4,max=4,message="{signin.captcha.size}")
+	@Size(min=4,max=4,message="{user.captcha.size}")
 	private String captcha;
 
 	public String getUsername()

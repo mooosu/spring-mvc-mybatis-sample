@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-	   xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
@@ -54,5 +54,5 @@
         <property name="cacheSeconds" value="0" />
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
-
+    <import resource="resolvers-context.xml" />
 </beans>
